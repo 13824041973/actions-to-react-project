@@ -1,32 +1,9 @@
-import React, { memo, useEffect, useState } from "react";
-import hyRequest from "@/services";
+import React, { memo } from "react";
 
 const Home = memo(() => {
-  const [highScore, setHighScore] = useState({});
-  useEffect(() => {
-    hyRequest
-      .get({
-        url: "/home/highscore",
-      })
-      .then((res) => {
-        console.log(res);
-        setHighScore(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
-
   return (
     <div>
       <h1>Home</h1>
-      <h2>{highScore.title}</h2>
-      <h4>{highScore.subtitle}</h4>
-      <ul>
-        {highScore.list?.map((item) => {
-          return <li key={item.id}>{item.name}</li>;
-        })}
-      </ul>
     </div>
   );
 });
