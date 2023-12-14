@@ -39,5 +39,7 @@ export const RightWrapper = styled.div`
         margin-right: 24px;
         cursor: pointer;
         color: ${props => props.theme.text.primaryColor};
+
+        ${props => props.theme.mixin.boxShadow}
     }
 `
