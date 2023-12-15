@@ -1,2 +1,2 @@
-export const BASE_URL = 'http://127.0.0.1:4523/m1/3750200-0-default'
+export const BASE_URL = 'http://codercba.com:1888/airbnb/api'
 export const TIME_OUT = 10000
