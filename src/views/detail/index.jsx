@@ -1,9 +1,8 @@
-import React, { memo } from 'react'
+import React, { memo } from "react";
+import { DetailWrapper } from "./style";
 
 const Detail = memo(() => {
-  return (
-    <div>Detail</div>
-  )
-})
+  return <DetailWrapper>Detail</DetailWrapper>;
+});
 
-export default Detail
+export default Detail;
