@@ -26,6 +26,7 @@ export const RightWrapper = styled.div`
     }
 
     .profile {
+        position: relative;
         display: flex;
         justify-content: space-evenly;
         align-items: center;
@@ -40,5 +41,33 @@ export const RightWrapper = styled.div`
         color: ${props => props.theme.text.primaryColor};
 
         ${props => props.theme.mixin.boxShadow}
+
+        .panel {
+            position: absolute;
+            width: 240px;
+            top: 54px;
+            right: 0;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 6px rgba(0,0,0,.2);
+
+            .top, .bottom {
+                padding: 10px 0;
+
+                .item {
+                    height: 40px;
+                    line-height: 40px;
+                    padding: 0 16px;
+
+                    &:hover {
+                        background-color: #f5f5f5;
+                    }
+                }
+            }
+
+            .top {
+                border-bottom: 1px solid #ddd;
+            }
+        }
     }
 `
