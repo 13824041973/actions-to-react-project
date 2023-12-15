@@ -8,7 +8,6 @@ export const RightWrapper = styled.div`
 
     color: ${props => props.theme.text.primaryColor};
     font-weight: 600;
-    font-size: 14px;
 
     .btns {
         display: flex;
