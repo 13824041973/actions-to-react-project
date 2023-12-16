@@ -1,11 +1,15 @@
 import React, { memo, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { fetchHomeDataAction } from "@/store/modules/home";
 import HomeBanner from "./c-cpns/home-banner";
 import { HomeWrapper } from "./style";
+import SectionHeader from "@/components/section-header";
+import RoomItem from "@/components/room-item";
 
 const Home = memo(() => {
+  const goodPriceInfo = useSelector((state) => state.home.goodPriceInfo);
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchHomeDataAction());
@@ -16,9 +20,13 @@ const Home = memo(() => {
       <HomeBanner />
 
       <div className="content">
-        <div className="section">
-          <div className="title"></div>
-          <div className="content"></div>
+        <div className="good-price">
+          <SectionHeader title={goodPriceInfo.title} />
+          <ul className="room-list">
+            {goodPriceInfo.list?.slice(0, 8).map((item) => {
+              return <RoomItem itemData={item} key={item.id} />;
+            })}
+          </ul>
         </div>
       </div>
     </HomeWrapper>
