@@ -1,8 +1,6 @@
 import React, { memo, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import Button from '@mui/material/Button';
-
 import { fetchHomeDataAction } from "@/store/modules/home";
 import HomeBanner from "./c-cpns/home-banner";
 import { HomeWrapper } from "./style";
@@ -20,10 +18,6 @@ const Home = memo(() => {
   return (
     <HomeWrapper>
       <HomeBanner />
-
-      <Button variant="text">Text</Button>
-      <Button variant="contained">Contained</Button>
-      <Button variant="outlined">Outlined</Button>
 
       <div className="content">
         <div className="good-price">

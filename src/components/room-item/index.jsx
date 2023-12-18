@@ -1,5 +1,7 @@
 import PropTypes from "prop-types";
 import React, { memo } from "react";
+import Rating from "@mui/material/Rating";
+
 import { ItemWrapper } from "./style";
 
 const RoomItem = memo((props) => {
@@ -13,6 +15,21 @@ const RoomItem = memo((props) => {
         <div className="desc">{itemData.verify_info.messages.join(" · ")}</div>
         <div className="name">{itemData.name}</div>
         <div className="price">￥{itemData.price}/晚</div>
+        <div className="bottom">
+          <Rating
+            value={itemData.star_rating ?? 5}
+            precision={0.1}
+            readOnly
+            sx={{
+              fontSize: "12px",
+              color: itemData.star_rating_color || "#00848A",
+            }}
+          />
+          <span className="count">{itemData.reviews_count}</span>
+          {itemData.bottom_info && (
+            <span className="extra">·{itemData.bottom_info?.content}</span>
+          )}
+        </div>
       </div>
     </ItemWrapper>
   );

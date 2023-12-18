@@ -4,7 +4,6 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 export const fetchHomeDataAction = createAsyncThunk("fetchdata", async (payload, { dispatch }) => {
     getHomeGoodPriceData().then(res => {
         dispatch(changeGoodPriceInfo(res))
-        console.log(res);
     })
 })
 
