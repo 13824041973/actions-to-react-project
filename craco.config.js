@@ -23,7 +23,7 @@ module.exports = {
             "@": reslove("src"),
             "components": reslove("src/components"),
             "utils": reslove("src/utils"),
-            '@mui/styled-engine': '@mui/styled-engine-sc'
+            // '@mui/styled-engine': '@mui/styled-engine-sc'
         }
     }
 }

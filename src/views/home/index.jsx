@@ -1,7 +1,7 @@
 import React, { memo, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { Button } from 'antd';
+import Button from '@mui/material/Button';
 
 import { fetchHomeDataAction } from "@/store/modules/home";
 import HomeBanner from "./c-cpns/home-banner";
@@ -21,7 +21,9 @@ const Home = memo(() => {
     <HomeWrapper>
       <HomeBanner />
 
-      <Button type="primary">Button</Button>
+      <Button variant="text">Text</Button>
+      <Button variant="contained">Contained</Button>
+      <Button variant="outlined">Outlined</Button>
 
       <div className="content">
         <div className="good-price">
