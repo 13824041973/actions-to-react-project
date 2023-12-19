@@ -4,11 +4,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchHomeDataAction } from "@/store/modules/home";
 import HomeBanner from "./c-cpns/home-banner";
 import { HomeWrapper } from "./style";
-import SectionHeader from "@/components/section-header";
-import SectionRooms from "@/components/section-rooms";
+import HomeSectionV1 from "./c-cpns/home-section-v1";
 
 const Home = memo(() => {
   const goodPriceInfo = useSelector((state) => state.home.goodPriceInfo);
+  const highScoreInfo = useSelector((state) => state.home.highScoreInfo);
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -20,10 +20,8 @@ const Home = memo(() => {
       <HomeBanner />
 
       <div className="content">
-        <div className="good-price">
-          <SectionHeader title={goodPriceInfo.title} />
-          <SectionRooms roomList={goodPriceInfo.list} />
-        </div>
+        <HomeSectionV1 $infodata={goodPriceInfo} />
+        <HomeSectionV1 $infodata={highScoreInfo} />
       </div>
     </HomeWrapper>
   );
