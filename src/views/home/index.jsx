@@ -12,6 +12,7 @@ const Home = memo(() => {
   const goodPriceInfo = useSelector((state) => state.home.goodPriceInfo);
   const highScoreInfo = useSelector((state) => state.home.highScoreInfo);
   const discountInfo = useSelector((state) => state.home.discountInfo);
+  const recommendInfo = useSelector((state) => state.home.recommendInfo);
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -24,6 +25,7 @@ const Home = memo(() => {
 
       <div className="content">
         {isEmptyO(discountInfo) && <HomeSectionV2 $infodata={discountInfo} />}
+        {isEmptyO(recommendInfo) && <HomeSectionV2 $infodata={recommendInfo} />}
         {isEmptyO(goodPriceInfo) && <HomeSectionV1 $infodata={goodPriceInfo} />}
         {isEmptyO(highScoreInfo) && <HomeSectionV1 $infodata={highScoreInfo} />}
       </div>
