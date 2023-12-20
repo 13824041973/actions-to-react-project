@@ -7,8 +7,11 @@ import { SectionV2Wrapper } from "./style";
 
 const HomeSectionV2 = memo((props) => {
   const { $infodata } = props;
-  const [name, setName] = useState("佛山");
+
+  const initialName = Object.keys($infodata.dest_list)[0]
+  const [name, setName] = useState(initialName);
   const tabNames = $infodata?.dest_address?.map((item) => item.name);
+
   const tabClickHandle = useCallback((name) => {
     setName(name);
   }, []);

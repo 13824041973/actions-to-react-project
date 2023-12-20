@@ -6,6 +6,7 @@ import HomeBanner from "./c-cpns/home-banner";
 import { HomeWrapper } from "./style";
 import HomeSectionV1 from "./c-cpns/home-section-v1";
 import HomeSectionV2 from "./c-cpns/home-section-v2";
+import { isEmptyO } from "@/utils";
 
 const Home = memo(() => {
   const goodPriceInfo = useSelector((state) => state.home.goodPriceInfo);
@@ -22,9 +23,9 @@ const Home = memo(() => {
       <HomeBanner />
 
       <div className="content">
-        <HomeSectionV2 $infodata={discountInfo} />
-        <HomeSectionV1 $infodata={goodPriceInfo} />
-        <HomeSectionV1 $infodata={highScoreInfo} />
+        {isEmptyO(discountInfo) && <HomeSectionV2 $infodata={discountInfo} />}
+        {isEmptyO(goodPriceInfo) && <HomeSectionV1 $infodata={goodPriceInfo} />}
+        {isEmptyO(highScoreInfo) && <HomeSectionV1 $infodata={highScoreInfo} />}
       </div>
     </HomeWrapper>
   );
