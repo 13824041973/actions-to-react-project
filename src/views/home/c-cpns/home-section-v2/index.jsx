@@ -1,3 +1,4 @@
+import SectionFooter from "@/components/section-footer";
 import SectionHeader from "@/components/section-header";
 import SectionRooms from "@/components/section-rooms";
 import SectionTabs from "@/components/section-tabs";
@@ -8,7 +9,7 @@ import { SectionV2Wrapper } from "./style";
 const HomeSectionV2 = memo((props) => {
   const { $infodata } = props;
 
-  const initialName = Object.keys($infodata.dest_list)[0]
+  const initialName = Object.keys($infodata.dest_list)[0];
   const [name, setName] = useState(initialName);
   const tabNames = $infodata?.dest_address?.map((item) => item.name);
 
@@ -21,6 +22,7 @@ const HomeSectionV2 = memo((props) => {
       <SectionHeader title={$infodata.title} subtitle={$infodata.subtitle} />
       <SectionTabs tabNames={tabNames} tabClick={tabClickHandle} />
       <SectionRooms roomList={$infodata.dest_list?.[name]} itemWidth="33%" />
+      <SectionFooter name={name} />
     </SectionV2Wrapper>
   );
 });
