@@ -8,6 +8,7 @@ import HomeSectionV1 from "./c-cpns/home-section-v1";
 import HomeSectionV2 from "./c-cpns/home-section-v2";
 import { isEmptyO } from "@/utils";
 import HomeLongfor from "./c-cpns/home-longfor";
+import HomeSectionV3 from "./c-cpns/home-section-v3";
 
 const Home = memo(() => {
   const goodPriceInfo = useSelector((state) => state.home.goodPriceInfo);
@@ -15,6 +16,7 @@ const Home = memo(() => {
   const discountInfo = useSelector((state) => state.home.discountInfo);
   const recommendInfo = useSelector((state) => state.home.recommendInfo);
   const longforInfo = useSelector((state) => state.home.longforInfo);
+  const plusInfo = useSelector((state) => state.home.plusInfo);
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -26,15 +28,15 @@ const Home = memo(() => {
       <HomeBanner />
 
       <div className="content">
-      {isEmptyO(longforInfo) && <HomeLongfor infoData={longforInfo} />}
-
-
         {isEmptyO(discountInfo) && <HomeSectionV2 $infodata={discountInfo} />}
         {isEmptyO(recommendInfo) && <HomeSectionV2 $infodata={recommendInfo} />}
 
+        {isEmptyO(longforInfo) && <HomeLongfor infoData={longforInfo} />}
 
         {isEmptyO(goodPriceInfo) && <HomeSectionV1 $infodata={goodPriceInfo} />}
         {isEmptyO(highScoreInfo) && <HomeSectionV1 $infodata={highScoreInfo} />}
+
+        {isEmptyO(plusInfo) && <HomeSectionV3 infoData={plusInfo} />}
       </div>
     </HomeWrapper>
   );
