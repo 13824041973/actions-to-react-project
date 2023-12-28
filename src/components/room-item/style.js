@@ -36,10 +36,10 @@ export const ItemWrapper = styled.div`
     .name {
         font-size: 16px;
         font-weight: 700;
-
+        white-space: nowrap;
         overflow: hidden;  
         text-overflow: ellipsis; 
-        display: -webkit-box; 
+        /* display: -webkit-box;  */
         -webkit-line-clamp: 2; 
         -webkit-box-orient: vertical;
     }

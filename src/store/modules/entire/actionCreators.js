@@ -20,11 +20,9 @@ export const fetchRoomListAction = () => {
     return async (dispatch, getState) => {
         const currentPage = getState().entire.currentPage;
         const res = await getEntireRoomList(currentPage * 20)
-        console.log(res);
         const roomList = res.list
         const totalCount = res.totalCount
         dispatch(changeRoomListAction(roomList))
         dispatch(changeTotalCountAction(totalCount))
-        console.log(getState());
     }
 }
