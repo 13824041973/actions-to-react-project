@@ -15,7 +15,7 @@ export const RightWrapper = styled.div`
 
         .btn {
             line-height: 18px;
-            height: 18px;
+            /* height: 18px; */
             padding: 12px 15px;
             border-radius: 22px;
             cursor: pointer;

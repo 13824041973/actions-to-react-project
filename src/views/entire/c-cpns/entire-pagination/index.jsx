@@ -19,16 +19,17 @@ const EntirePagination = memo(() => {
   const startCount = currentPage * 20 + 1;
   const endCount = (currentPage + 1) * 20;
 
-  const dispatch = useDispatch()
-  function pageChangeHandle(event,curPage) {
-    dispatch(fetchRoomListAction(curPage))
+  const dispatch = useDispatch();
+  function pageChangeHandle(event, curPage) {
+    window.scrollTo(0, 0);
+    dispatch(fetchRoomListAction(curPage));
   }
 
   return (
     <PaginationWrapper>
       {!!roomList.length && (
         <div className="info">
-          <Pagination count={totalPage} onChange={pageChangeHandle}/>
+          <Pagination count={totalPage} onChange={pageChangeHandle} />
           <div className="desc">
             第 {startCount}-{endCount} 个房源，共超过{totalCount}个
           </div>
