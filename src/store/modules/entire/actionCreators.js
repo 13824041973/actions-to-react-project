@@ -16,10 +16,10 @@ export const changeTotalCountAction = (totalCount) => ({
     totalCount
 })
 
-export const fetchRoomListAction = () => {
-    return async (dispatch, getState) => {
-        const currentPage = getState().entire.currentPage;
-        const res = await getEntireRoomList(currentPage * 20)
+export const fetchRoomListAction = (page = 0) => {
+    return async (dispatch) => {
+        dispatch(changeCurrentPageAction(page))
+        const res = await getEntireRoomList(page * 20)
         const roomList = res.list
         const totalCount = res.totalCount
         dispatch(changeRoomListAction(roomList))
