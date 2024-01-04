@@ -21,14 +21,18 @@ export const BrowserWrapper = styled.div`
             top: 15px;
             right: 25px;
             cursor: pointer;
+            z-index: 2;
         }
     }
 
     .slider {
+        display: flex;
+        justify-content: center;
         flex: 1;
 
         .control {
             position: absolute;
+            z-index: 1;
             top: 0;
             bottom: 0;
             left: 0;
@@ -44,6 +48,24 @@ export const BrowserWrapper = styled.div`
                 width: 83px;
                 height: 100%;
                 cursor: pointer;
+            }
+        }
+
+        .picture {
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+            width: 100%;
+            max-width: 105vh;
+
+            img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                margin: 0 auto;
+                height: 100%;
+                user-select: none;
             }
         }
     }
