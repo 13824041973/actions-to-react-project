@@ -1,13 +1,16 @@
+import PropTypes from "prop-types";
+import React, { memo, useEffect, useState } from "react";
+import { CSSTransition, SwitchTransition } from "react-transition-group";
+
 import IconArrowLeft from "@/assets/svg/icon-arrow-left";
 import IconArrowRight from "@/assets/svg/icon-arrow-right";
 import IconClose from "@/assets/svg/icon_close";
-import PropTypes from "prop-types";
-import React, { memo, useEffect, useState } from "react";
 import { BrowserWrapper } from "./style";
 
 const PictureBrowser = memo((props) => {
   const { pictureUrls, closeClick } = props;
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isNext, setIsNext] = useState(true);
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
@@ -26,10 +29,11 @@ const PictureBrowser = memo((props) => {
     if (newIndex < 0) newIndex = pictureUrls.length - 1;
     if (newIndex > pictureUrls.length - 1) newIndex = 0;
     setCurrentIndex(newIndex);
+    setIsNext(isNext);
   }
 
   return (
-    <BrowserWrapper>
+    <BrowserWrapper $isnext={isNext}>
       <div className="top">
         <div className="close-btn" onClick={closeBtnClickHandle}>
           <IconClose />
@@ -45,7 +49,15 @@ const PictureBrowser = memo((props) => {
           </div>
         </div>
         <div className="picture">
-          <img src={pictureUrls[currentIndex]} alt="" />
+          <SwitchTransition mode="in-out">
+            <CSSTransition
+              classNames="pic"
+              timeout={200}
+              key={pictureUrls[currentIndex]}
+            >
+              <img src={pictureUrls[currentIndex]} alt="" />
+            </CSSTransition>
+          </SwitchTransition>
         </div>
       </div>
       <div className="preview"></div>
