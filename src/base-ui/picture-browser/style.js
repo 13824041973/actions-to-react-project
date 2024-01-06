@@ -26,6 +26,7 @@ export const BrowserWrapper = styled.div`
     }
 
     .slider {
+        position: relative;
         display: flex;
         justify-content: center;
         flex: 1;
@@ -89,7 +90,45 @@ export const BrowserWrapper = styled.div`
     }
 
     .preview {
+        display: flex;
+        justify-content: center;
         height: 100px;
         margin-top: 10px;
+
+        .info {
+            position: absolute;
+            bottom: 10px;
+            max-width: 105vh;
+            color: #fff;
+
+            .desc {
+                display: flex;
+                justify-content: space-between;
+
+                .toggle {
+                    cursor: pointer;
+                }
+            }
+            
+            .list {
+                margin-top: 3px;
+                overflow: hidden;
+                transition: height 300ms ease;
+
+                .item {
+                    margin-right: 15px;
+                    cursor: pointer;
+
+                    .bottomPic {
+                        height: 67px;
+                        opacity: 0.5;
+                    }
+
+                    .active {
+                        opacity: 1 !important;
+                    }
+                }
+            }
+        }
     }
 `

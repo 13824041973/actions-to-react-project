@@ -6,6 +6,9 @@ import IconArrowLeft from "@/assets/svg/icon-arrow-left";
 import IconArrowRight from "@/assets/svg/icon-arrow-right";
 import IconClose from "@/assets/svg/icon_close";
 import { BrowserWrapper } from "./style";
+import IconTriangleArrowBottom from "@/assets/svg/icon-triangle-arrow-bottom";
+import Indicator from "../indicator";
+import classNames from "classnames";
 
 const PictureBrowser = memo((props) => {
   const { pictureUrls, closeClick } = props;
@@ -60,7 +63,39 @@ const PictureBrowser = memo((props) => {
           </SwitchTransition>
         </div>
       </div>
-      <div className="preview"></div>
+      <div className="preview">
+        <div className="info">
+          <div className="desc">
+            <div className="count">
+              <span>
+                {currentIndex + 1}/{pictureUrls.length}：
+              </span>
+              <span>room Apartment图片{currentIndex + 1}</span>
+            </div>
+            <div className="toggle">
+              <span>隐藏照片列表</span>
+              <IconTriangleArrowBottom />
+            </div>
+          </div>
+          <div className="list">
+            <Indicator selectIndex={currentIndex}>
+              {pictureUrls.map((item, index) => {
+                return (
+                  <div className="item" key={item}>
+                    <img
+                      src={item}
+                      className={classNames("bottomPic", {
+                        active: currentIndex === index,
+                      })}
+                      alt=""
+                    />
+                  </div>
+                );
+              })}
+            </Indicator>
+          </div>
+        </div>
+      </div>
     </BrowserWrapper>
   );
 });
