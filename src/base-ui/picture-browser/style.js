@@ -114,6 +114,7 @@ export const BrowserWrapper = styled.div`
                 margin-top: 3px;
                 overflow: hidden;
                 transition: height 300ms ease;
+                height: ${props => props.$showList ? '67px' : '0'};
 
                 .item {
                     margin-right: 15px;

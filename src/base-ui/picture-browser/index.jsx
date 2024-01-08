@@ -9,11 +9,13 @@ import { BrowserWrapper } from "./style";
 import IconTriangleArrowBottom from "@/assets/svg/icon-triangle-arrow-bottom";
 import Indicator from "../indicator";
 import classNames from "classnames";
+import IconTriangleArrowTop from "@/assets/svg/icon-triangle-arrow-top";
 
 const PictureBrowser = memo((props) => {
   const { pictureUrls, closeClick } = props;
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isNext, setIsNext] = useState(true);
+  const [showList, setShowList] = useState(true);
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
@@ -35,8 +37,13 @@ const PictureBrowser = memo((props) => {
     setIsNext(isNext);
   }
 
+  function bottomItemClickHandle(index) {
+    setIsNext(index > currentIndex);
+    setCurrentIndex(index);
+  }
+
   return (
-    <BrowserWrapper $isnext={isNext}>
+    <BrowserWrapper $isnext={isNext} $showList={showList}>
       <div className="top">
         <div className="close-btn" onClick={closeBtnClickHandle}>
           <IconClose />
@@ -72,16 +79,24 @@ const PictureBrowser = memo((props) => {
               </span>
               <span>room Apartment图片{currentIndex + 1}</span>
             </div>
-            <div className="toggle">
-              <span>隐藏照片列表</span>
-              <IconTriangleArrowBottom />
+            <div className="toggle" onClick={(e) => setShowList(!showList)}>
+              <span>{showList ? "隐藏" : "显示"}照片列表</span>
+              {showList ? (
+                <IconTriangleArrowBottom />
+              ) : (
+                <IconTriangleArrowTop />
+              )}
             </div>
           </div>
           <div className="list">
             <Indicator selectIndex={currentIndex}>
               {pictureUrls.map((item, index) => {
                 return (
-                  <div className="item" key={item}>
+                  <div
+                    className="item"
+                    onClick={(e) => bottomItemClickHandle(index)}
+                    key={item}
+                  >
                     <img
                       src={item}
                       className={classNames("bottomPic", {
