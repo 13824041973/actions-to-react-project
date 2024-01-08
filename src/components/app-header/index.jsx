@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import React, { memo } from "react";
 import { shallowEqual, useSelector } from "react-redux";
 import HeaderCenter from "./c-cpns/header-center";
@@ -12,11 +13,19 @@ const AppHeader = memo(() => {
     }),
     shallowEqual
   );
+  const { isFixed } = headerConfig;
+
   return (
-    <HeaderWrapper $headerConfig={headerConfig}>
-      <HeaderLeft />
-      <HeaderCenter />
-      <HeaderRight />
+    <HeaderWrapper className={classNames({ fixed: isFixed })}>
+      <div className="content">
+        <div className="top">
+          <HeaderLeft />
+          <HeaderCenter />
+          <HeaderRight />
+        </div>
+        <div className="search-area"></div>
+      </div>
+      <div className="cover"></div>
     </HeaderWrapper>
   );
 });

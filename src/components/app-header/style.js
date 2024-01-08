@@ -1,12 +1,39 @@
 import styled from "styled-components";
 
 export const HeaderWrapper = styled.div`
-    display: flex;
-    align-items: center;
-    width: 100%;
-    height: 80px;
     border-bottom: 1px solid #eee;
-    position: ${props => props.$headerConfig.isFixed ? 'fixed' : 'initial'};
-    z-index: 2;
-    background-color: #fff;
+    
+    .content {
+        position: relative;
+        z-index: 19;
+        background-color: #fff;
+
+        .top {
+            display: flex;
+            align-items: center;
+            height: 80px;
+        }
+        .search-area {
+            height: 100px;
+        }
+    }
+
+    &.fixed {
+        top: 0;
+        left: 0;
+        right: 0;
+        position: fixed;
+        z-index: 99;
+    }
+
+    .cover {
+        position: fixed;
+        z-index: 9;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        background-color: rgba(0,0,0,.3);
+    }
+
 `
