@@ -6,6 +6,7 @@ export const SectionsWrapper = styled.div`
     border: 1px solid #ddd;
     border-radius: 32px;
     box-shadow: 0 3px 12px 0 rgba(0,0,0,0.1), 0 1px 2px 0 rgba(0,0,0,0.08);
+    background-color: ${props => props.theme.isAlpha ? "#fff" : "rgba(255,255,255,0)"};
 
     .ltr {
         height: 32px;

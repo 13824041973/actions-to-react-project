@@ -22,7 +22,7 @@ const Home = memo(() => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchHomeDataAction());
-    dispatch(changeHeaderConfigAction({ isFixed: true, isHome: true }));
+    dispatch(changeHeaderConfigAction({ isFixed: true, topAlpha: true }));
   }, [dispatch]);
 
   return (

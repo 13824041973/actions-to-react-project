@@ -8,7 +8,7 @@ import { DetailWrapper } from "./style";
 const Detail = memo(() => {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(changeHeaderConfigAction({ isFixed: false, isHome: false }));
+    dispatch(changeHeaderConfigAction({ isFixed: false, topAlpha: false }));
   }, [dispatch]);
   return (
     <DetailWrapper>

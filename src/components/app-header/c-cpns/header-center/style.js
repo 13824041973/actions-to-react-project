@@ -64,6 +64,15 @@ export const CenterWrapper = styled.div`
         opacity: 0;
     }
 
+    .detail-enter {
+        transform: scale(0.35,0.72) translateY(-58px);
+        opacity: 0;
+    }
+    .detail-enter-active {
+        transform: scale(1.0) translateY(0);
+        opacity: 1;
+        transition: all 250ms ease;
+    }
     .detail-exit {
         transform: scale(1.0) translateY(0);
         opacity: 1;
@@ -72,14 +81,5 @@ export const CenterWrapper = styled.div`
         transition: all 250ms ease;
         transform: scale(0.35, 0.72) translateY(-58px);
         opacity: 0;
-    }
-    .detail-enter {
-        transform: scale((0.35,0.72)) translateY(-58px);
-        opacity: 0;
-    }
-    .detail-enter-active {
-        transform: scale(1.0) translateY(0);
-        opacity: 1;
-        transition: all 250ms ease;
     }
 `
