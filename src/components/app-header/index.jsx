@@ -1,5 +1,6 @@
+import { useScrollPosition } from "@/hooks";
 import classNames from "classnames";
-import React, { memo, useState } from "react";
+import React, { memo, useRef, useState } from "react";
 import { shallowEqual, useSelector } from "react-redux";
 import HeaderCenter from "./c-cpns/header-center";
 import HeaderLeft from "./c-cpns/header-left";
@@ -16,6 +17,13 @@ const AppHeader = memo(() => {
     shallowEqual
   );
   const { isFixed } = headerConfig;
+
+  // 监听滚动
+  const { scrollY } = useScrollPosition();
+  const prevY = useRef(0);
+  if (!isSearch) prevY.current = scrollY;
+  // 滚动一定距离，将搜索状态切换
+  if (isSearch && Math.abs(scrollY - prevY.current) > 150) setIsSearch(false);
 
   return (
     <HeaderWrapper className={classNames({ fixed: isFixed })}>
