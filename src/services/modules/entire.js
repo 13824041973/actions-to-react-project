@@ -1,4 +1,4 @@
-import hyRequest from "../request";
+// import hyRequest from "../request";
 import entire from "./mock/entire";
 
 export function getEntireRoomList(offset = 0, size = 20) {

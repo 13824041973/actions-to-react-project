@@ -1,4 +1,4 @@
-import hyRequest from "../request";
+// import hyRequest from "../request";
 import { discount, goodprice, highscore, hotrecommenddest, longfor, plus } from "./mock/home";
 
 export function getHomeGoodPriceData() {
