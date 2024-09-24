@@ -22,7 +22,7 @@ const EntirePagination = memo(() => {
   const dispatch = useDispatch();
   function pageChangeHandle(event, curPage) {
     window.scrollTo(0, 0);
-    dispatch(fetchRoomListAction(curPage));
+    dispatch(fetchRoomListAction(curPage - 1));
   }
 
   return (
