@@ -1,4 +1,4 @@
-export default {
+export const entire = {
     "list": [
         {
             "_id": "63043046432f9033d45410dd",
